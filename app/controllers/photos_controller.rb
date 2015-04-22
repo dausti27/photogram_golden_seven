@@ -9,4 +9,13 @@ class PhotosController < ApplicationController
 
   def new_form
   end
+
+  def create
+    p = Photo.new
+    p.source = params[:the_source]
+    p.caption = params[:the_caption]
+    p.save
+
+    redirect_to("http://localhost:3000/photos")
+  end
 end
