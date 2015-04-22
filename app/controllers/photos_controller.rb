@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
   def new_form
   end
 
-  def create
+  def create_row
     p = Photo.new
     p.source = params[:the_source]
     p.caption = params[:the_caption]
@@ -24,5 +24,9 @@ class PhotosController < ApplicationController
     p.destroy
 
     redirect_to("http://localhost:3000/photos")
+  end
+
+  def edit_form
+    @photo = Photo.find(params[:id])
   end
 end
