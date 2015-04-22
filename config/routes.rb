@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get("/photos/:id",       { :controller => "photos", :action => "show" })
 
 
+  # Route to DELETE photos
+  get("/delete_photo/:id", { :controller => "photos", :action => "destroy" })
 
 end
