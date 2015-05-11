@@ -46,10 +46,11 @@ Let's get started.
 
 ## The Target
 
-To start with, we'll keep it simple and manage just one resource: photos. Our goal is to build an app that lets users submit URLs of photos and add captions for them.
+To start with, we'll keep it simple and manage just one resource: photos. Our goal is to build an app that lets users submit URLs of photos and add captions for them, like this:
+
+[http://photogram-golden-7.herokuapp.com](http://photogram-golden-7.herokuapp.com)
 
 Eventually, we'll add the ability to sign up, upload photos, and follow other users, and we'll wind up building Instagram. But for now, anonymous visitors will simply copy-paste the URLs of images that are already on the Internet.
-
 ## Setup
 
  1. Read the instructions completely.
@@ -106,6 +107,8 @@ The first step is: let's give the user a form to type some stuff in to. Add the 
 
     get("/photos/new", { :controller => "photos", :action => "new_form" })
 
+**Note: If you add this below the `show` route, Rails will get confused. (Why?) Add this route above the show route instead.**
+
 This action has a very simple job: draw a blank form in the user's browser for them to type some stuff into.
 
 It's been a while since we've done any forms, but let's shake off the rust and recall our Essential HTML (refer to that repository if you need to) to craft a form for a photo with two inputs: one for the image's URL and one for a caption. Complete the RCAV and add the following HTML in the view:
@@ -154,7 +157,7 @@ Fortunately, we can very easily pick which URL receives the data from a form: it
 
 Think of the action attribute as being like the `href` attribute of the `<a>` tag. It determines where the user is sent after they click. The only difference between a form and a link is that when the user clicks a form, some extra data comes along for the ride, but either way, the user is sent to a new URL.
 
-Of course, because we haven't set up a route to support `"/create_photo"`. Let's do that:
+Of course, if you click it right now, you'll receive a "NO ROUTE MATCHES" error -- because we haven't set up a route to support `"/create_photo"`. Let's do that:
 
 #### create_row
 
@@ -244,8 +247,10 @@ Struggle with it; **come up with questions**.
 
 Connect [Bootstrap][2] or a [Bootswatch][3] and make the index page look similar to [this][4], but without the user avatars and comments.
 
+You can find and modify the `<head>` and other boilerplate that wrap all of your view templates in `/app/views/layouts/application.html.erb`.
+
 
   [1]: https://gist.github.com/rbetina/bb6336ead63080be2ff4
   [2]: http://www.bootstrapcdn.com/#quickstart_tab
   [3]: http://www.bootstrapcdn.com/#bootswatch_tab
-  [4]: http://htmlpreview.github.io/?https://github.com/boothappdev/bootstrap_exercises/blob/master/photogram/solution.html
+  [4]: http://photogram-golden-7.herokuapp.com/mockup.html
